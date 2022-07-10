@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spin the Page</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+      }
+      button {
+        margin-top: 20px;
+      }
+      p{
+        width: 75%;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>JavaScript: All the Cool Kids Are Doing It</h1>
+    <p>
+        JavaScript, also called JS, is a flexible and powerful language that is implemented consistently by various web browsers, making it the language for web development. JavaScript, HTML, and CSS are the core components of web technology. While HTML is responsible for structure and CSS is responsible for style, JavaScript provides interactivity to web pages in the browser.
+        Beyond the web, JavaScript has a large presence amongst cross-platform applications. We use some popular standalone desktop apps like Slack, GitHub, Skype, and Tidal. These applications are developed with the JavaScript framework called Electron.js. Electron is excellent for making desktop applications that need to work across different devices regardless of operating system.
+    </p>
+    <button id="spin">Click to Spin</button>
+  </body>
+  <script>
+    let spinBtn = document.getElementById("spin");
+    spinBtn.addEventListener("click", spin);
+    function spin() {
+      document.documentElement.style.transitionDuration = "20s";
+      document.documentElement.style.transitionTimingFunction = "ease-in-out";
+      document.documentElement.style.transform = "rotate(360deg)";
+    }
+  </script>
+</html>
