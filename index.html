@@ -12,11 +12,23 @@
         align-items: center;
         flex-direction: column;
         height: 100vh;
+        -webkit-transition: all 10s ease-in-out;
+        -moz-transition: all 10s ease-in-out;
+        -o-transition: all 10s ease-in-out;
+        transition: all 10s ease-in-out;
       }
       button {
         margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 18px;
+        border-radius: 6px;
+        border: 2px solid gray;
       }
-      p{
+      button:hover{
+        cursor: pointer;
+        transform: scale(1.2);
+      }
+      p {
         width: 75%;
         text-align: center;
       }
@@ -25,18 +37,31 @@
   <body>
     <h1>JavaScript: All the Cool Kids Are Doing It</h1>
     <p>
-        JavaScript, also called JS, is a flexible and powerful language that is implemented consistently by various web browsers, making it the language for web development. JavaScript, HTML, and CSS are the core components of web technology. While HTML is responsible for structure and CSS is responsible for style, JavaScript provides interactivity to web pages in the browser.
-        Beyond the web, JavaScript has a large presence amongst cross-platform applications. We use some popular standalone desktop apps like Slack, GitHub, Skype, and Tidal. These applications are developed with the JavaScript framework called Electron.js. Electron is excellent for making desktop applications that need to work across different devices regardless of operating system.
+      JavaScript, also called JS, is a flexible and powerful language that is
+      implemented consistently by various web browsers, making it the language
+      for web development. JavaScript, HTML, and CSS are the core components of
+      web technology. While HTML is responsible for structure and CSS is
+      responsible for style, JavaScript provides interactivity to web pages in
+      the browser. Beyond the web, JavaScript has a large presence amongst
+      cross-platform applications. We use some popular standalone desktop apps
+      like Slack, GitHub, Skype, and Tidal. These applications are developed
+      with the JavaScript framework called Electron.js. Electron is excellent
+      for making desktop applications that need to work across different devices
+      regardless of operating system.
     </p>
     <button id="spin">Click to Spin</button>
   </body>
   <script>
-    let spinBtn = document.getElementById("spin");
-    spinBtn.addEventListener("click", spin);
-    function spin() {
-      document.documentElement.style.transitionDuration = "20s";
-      document.documentElement.style.transitionTimingFunction = "ease-in-out";
-      document.documentElement.style.transform = "rotate(360deg)";
-    }
+    let rotated = false;
+    document.getElementById("spin").onclick = function () {
+      let div = document.body,
+        deg = rotated ? 0 : 360;
+      div.style.webkitTransform = "rotate(" + deg + "deg)";
+      div.style.mozTransform = "rotate(" + deg + "deg)";
+      div.style.msTransform = "rotate(" + deg + "deg)";
+      div.style.oTransform = "rotate(" + deg + "deg)";
+      div.style.transform = "rotate(" + deg + "deg)";
+      rotated = !rotated;
+    };
   </script>
 </html>
